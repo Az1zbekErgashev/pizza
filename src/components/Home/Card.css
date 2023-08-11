@@ -1,0 +1,182 @@
+.Selected__type{
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.Selected__type select{
+    border: 1px solid white;
+    background:none;
+    width: 10rem;
+    height: 2rem;
+    outline: none;
+    color: white;
+    padding: 0 5px 0 5px;
+    border-radius: 10px;
+
+}
+.Selected__type select option{
+    background-color: #252836;
+}
+
+.cardd{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px 0 10px 25px;
+    width: 100%;
+    margin-top: 70px;
+}
+
+.card__row{
+    background-color: #1F1D2B;
+    margin: 10px;
+    width: 250px;
+    height: 350px;
+    position: relative;
+    border-radius: 15px;
+}
+.card__row .card__img{
+    position: absolute;
+    top: -25%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.card__row .card__text{
+    text-align: center;
+    color: white; 
+    position: absolute;
+    top: 40%;
+    font-size: 25px;
+}
+.card__row .card__cost{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-weight: 300;
+}
+.card__row .card__count{
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.543);
+    font-weight: 300;
+}
+.card__row .card__add button{
+    width: 200px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    background-color: #EA7C69;
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    transition: .3s;
+}
+
+.card__row .card__add button:hover{
+    color:#1F1D2B;
+    font-weight: 600;
+    background-color: white;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 425px), (max-width:360px) {
+    .Selected__type{
+        height: 75px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+    }
+    .Selected__type select{
+        border: 1px solid white;
+        background:none;
+        width: 100px;
+        outline: none;
+        color: white;
+        padding: 0 5px 0 5px;
+        border-radius: 10px;
+    
+    }
+    .Selected__type select option{
+    }
+    
+    .cardd{
+        display: block !important;
+        padding: 0 !important;
+        width: 100%;
+        margin: 0 !important; 
+    }
+    
+    .card__row{
+        background-color: #1F1D2B;
+        margin: 120px 0;
+        width: 250px;
+        height: 350px;
+        position: relative;
+        border-radius: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .card__row .card__img{
+        position: absolute;
+        top: -25%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .card__row .card__text{
+        text-align: center;
+        color: white; 
+        position: absolute;
+        top: 40%;
+        font-size: 25px;
+    }
+    .card__row .card__cost{
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-weight: 300;
+    }
+    .card__row .card__count{
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.543);
+        font-weight: 300;
+    }
+    .card__row .card__add button{
+        width: 200px;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: none;
+        color: white;
+        border-radius: 5px;
+        height: 40px;
+    }
+    
+}
+
+
