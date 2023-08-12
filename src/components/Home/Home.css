@@ -188,3 +188,39 @@
         width: 50px;
     }
     }}
+  
+    @media (max-width:425px) {
+        .categoriy{
+            margin-top: 50px;
+        }
+        .categoriy__row{
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.400);
+            overflow-y: hidden;
+            overflow-x: scroll;
+        }
+        .categoriy__row div{
+            height: 45px;
+            font-size: 16px;
+            width: 130px;
+            
+        }
+        .active__Categoriy::after{
+            width: 130px;
+        }
+        .Navbar__text h1{
+            color: white;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+        }
+        .Navbar__search{
+            width: 250px;
+            font-size: 14px;
+            overflow: hidden;
+    
+        }
+    }

@@ -9,10 +9,12 @@ import Offcanvas from './Offcanvas';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
+import { Link } from 'react-router-dom';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
+
 export default function SiteBar() {
   const [payFoods, setPayFoods] = useState(false)
   const [activeItem2, setActiveItem2] = useState('item1');
@@ -27,9 +29,6 @@ export default function SiteBar() {
   const [TableVal, setTableVal] = useState('')
   const [CvvVal, setCvvVal] = useState('')
   const [open, setOpen] = React.useState(false);
-
-
-
 
 
   const pattern = /^\d+$/;
@@ -77,6 +76,7 @@ export default function SiteBar() {
 
     }
   }
+
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -228,7 +228,7 @@ export default function SiteBar() {
       <div className={`${activeItem === 'item4' ? 'active__iteam' : ''} SiteBar__Iteam col-12`}><i className={`${activeItem === 'item4' ? 'active' : ''} bi bi-slash-circle SiteBar__Index`} onClick={() => click('item4')}></i></div>
       <div className={`${activeItem === 'item2' ? 'active__iteam' : ''} SiteBar__Iteam col-12`}><i className={`${activeItem === 'item2' ? 'active' : ''} bi bi-house SiteBar__Index`} onClick={() => click('item2')}></i></div>
       <div className={`${activeItem === 'item7' ? 'active__iteam' : ''} SiteBar__Iteam col-12`}><i data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" className={`${activeItem === 'item7' ? 'active' : ''} bi bi-cart SiteBar__Index`} onClick={() => { click('item7'); }}></i></div>
-      <div className={`${activeItem === 'item8' ? 'active__iteam' : ''} SiteBar__Iteam col-12`}><i className={`${activeItem === 'item8' ? 'active' : ''} bi bi-person SiteBar__Index`} onClick={() => click('item8')}></i></div>
+      <div className={`${activeItem === 'item8' ? 'active__iteam' : ''} SiteBar__Iteam col-12`}><Link to='/login'><i  variant="outlined"  className={`${activeItem === 'item8' ? 'active' : ''} bi bi-person SiteBar__Index`} onClick={() => {click('item8');  }}></i></Link></div>
     </div>
   )
 
@@ -242,7 +242,7 @@ export default function SiteBar() {
       <div className={`${activeItem === 'item5' ? 'active__iteam' : ''} SiteBar__Iteam col-12`}><i className={`${activeItem === 'item5' ? 'active' : ''} bi bi-inbox SiteBar__Index`} onClick={() => click('item5')}></i></div>
       <div className={`${activeItem === 'item6' ? 'active__iteam' : ''} SiteBar__Iteam col-12`}><i className={`${activeItem === 'item6' ? 'active' : ''} bi bi-bell SiteBar__Index`} onClick={() => click('item6')}></i></div>
       <div className={`${activeItem === 'item7' ? 'active__iteam' : ''} SiteBar__Iteam col-12`}><i data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" className={`${activeItem === 'item7' ? 'active' : ''} bi bi-cart SiteBar__Index`} onClick={() => { click('item7'); }}></i></div>
-      <div className={`${activeItem === 'item8' ? 'active__iteam' : ''} SiteBar__Iteam col-12`}><i className={`${activeItem === 'item8' ? 'active' : ''} bi bi-person SiteBar__Index`} onClick={() => click('item8')}></i></div>
+      <div className={`${activeItem === 'item8' ? 'active__iteam' : ''} SiteBar__Iteam col-12`}><Link to='/login'><i  variant="outlined"  className={`${activeItem === 'item8' ? 'active' : ''} bi bi-person SiteBar__Index`} onClick={() => {click('item8');  }}></i></Link></div>
     </div>
   )
 

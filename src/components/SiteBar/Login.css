@@ -1,0 +1,96 @@
+.Login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .login_app{
+    display: block !important;
+    width: 400px;
+    background-color: #393C49;
+    height: 400px;
+    padding: 50px;
+    box-shadow: 0 0 10px grey;
+    border-radius: 15px;
+    overflow: hidden;
+ }
+ 
+ .login_app input{
+    border: 1px solid rgba(255, 255, 255, 0.555);
+    outline: none;
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px;
+    transition: .3s;
+    caret-color: white;
+    width: 250px;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    margin: 10px 0;
+    background: #393C49;
+    box-shadow: 0 0 5px grey;
+    color: white;
+   
+ }
+ label{
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+ }
+.Login__btn{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.Login__btn button{
+    border: 1px solid rgba(255, 255, 255, 0.519);
+    outline: none;
+    background-color:#393C49;
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    margin: 0 10px;
+    color: white;
+    font-size: 12px;
+
+}
+
+.sing_app{
+    display: block !important;
+    width: 400px;
+    background-color: #393C49;
+    height: 400px;
+    padding: 50px;
+    box-shadow: 0 0 10px grey;
+    border-radius: 15px;
+}
+ 
+.sing_app input{
+    border: 1px solid rgba(255, 255, 255, 0.555);
+    outline: none;
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px;
+    transition: .3s;
+    caret-color: white;
+    width: 250px;
+    position: relative;
+    transform: translateX(-50%);
+    left: 50%;
+    margin: 10px 0;
+    background: #393C49;
+    box-shadow: 0 0 5px grey;
+    color: white;
+}
+@media (max-width: 425px) {
+    .login_app{
+        width: 300px;
+
+     }
+     
+}
