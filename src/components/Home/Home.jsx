@@ -15,6 +15,10 @@ export default function Home() {
     const [state, setState] = useState('iteam1')
     const [meal, setMeal] = useState([])
     const [Number, setNumber] = useState(true)
+    var [cards, setCards] = useState([]);
+    const [sortBy, setSortBy] = useState('')
+    const [selectedCategory, setSelectedCategory] = useState('All');
+    const [sortedCards, setSortedCards] = useState([]);
     const run = () => {
         data.getMeal()
             .then(res => {
@@ -49,12 +53,49 @@ export default function Home() {
         }
 
     }
+    const sortPrice =()=>{
+        const sortedCardsCopy = [...meal];
+        sortedCardsCopy.sort((a, b) => a.cost - b.cost);
+        setMeal(sortedCardsCopy);
+    }
+    const filterCards = () => {
+        if (selectedCategory === 'All') {
+            setSortedCards(meal);
+        } else {
+          const filteredCards = meal.filter((card) => card.category === selectedCategory);
+          setSortedCards(filteredCards);
+        }
+      };
+    const sortChang = (event) => {
+        const { value } = event.target;
+        setSortBy(value);
+       if(value === 'alfabit'){
+        const sortedCards = [...meal];
+        sortedCards.sort((a, b) => a.text.localeCompare(b.text));
+        setMeal(sortedCards)
+       }
+       if (value === 'price') {
+        sortPrice();    
+      }
+    };
+   
+    cards = meal.filter(i => {
+        return i.text.toLowerCase().includes(val.toLowerCase())
+    })
 
 
 
     const click = (iteam) => {
         setState(iteam)
     }
+    useEffect(()=>{
+        sortPrice()
+    }, [sortBy])    
+
+    useEffect(()=>{
+        filterCards()
+
+    },[selectedCategory])
 
     useEffect(() => {
         if (Number === true) {
@@ -100,30 +141,28 @@ export default function Home() {
     const select = (
         <div className='Selected__type container'>
             <h4>Choose Dishes</h4>
-            <select name="" id="">
+            <select name="" id="" onChange={sortChang}>
                 <option selected>Select ...</option>
-                <option value="">Price</option>
+                <option value="price">Price</option>
+                <option value="alfabit">Name</option>
             </select>
         </div>
     )
-    
-    const updateMeal = meal.filter(i => {
-        return i.text.toLowerCase().includes(val.toLowerCase())
-    })
+   
 
     const Card = (
         <div>
             {
-                (meal.length > 0) ? <div  className={`${(updateMeal.length === 0 ) ? 'd-none' : 'cardd'} cardd`}>
+                (meal.length > 0) ? <div className={`${(cards.length === 0) ? 'd-none' : 'cardd'} cardd`}>
                     {
-                        updateMeal.map((item, index) => {
+                        cards.map((item, index) => {
                             return (
                                 <div className='card__row' key={index}>
                                     <div className="card__img">
                                         <img src={item.url} alt="" />
                                     </div>
-                                    <div className="card__text">
-                                        {item.text}
+                                    <div className="card__text text-center">
+                                        <p>{item.text}</p>
                                     </div>
                                     <div className="card__cost">
                                         $ {item.cost}
@@ -147,9 +186,9 @@ export default function Home() {
         </div>
     )
     const Noresult = (
-        <div className={`${(updateMeal.length === 0 ? 'd-block' : 'd-none')} Noresult`}>Ничего не нашлось</div>
+        <div className={`${(cards.length === 0 ? 'd-block' : 'd-none')} Noresult`}>Ничего не нашлось</div>
     )
-     
+
     return (
         <div className='Index__Site container'>
             {Navbar}

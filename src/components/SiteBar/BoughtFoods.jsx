@@ -31,7 +31,13 @@ export default function BoughtFoods() {
       localStorage.setItem("FoodsArray", JSON.stringify(newSwitcher));
       dispatch(getFoodsFromLocalStorage());
     setOpen3(true)
-
+    }
+    if(switcher[i].countShop === 1){
+      const newSwitcher = [...switcher];
+      newSwitcher.splice(i, 1);
+      localStorage.setItem("FoodsArray", JSON.stringify(newSwitcher));
+      dispatch(getFoodsFromLocalStorage());
+      setOpen3(true)
     }
   };
 

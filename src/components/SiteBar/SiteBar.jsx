@@ -5,7 +5,6 @@ import BoughtFoods from './BoughtFoods';
 import EmptyBox from './EmptyBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFoodsFromLocalStorage } from '../Redux/localStorate';
-import Offcanvas from './Offcanvas';
 import Stack from '@mui/material/Stack';
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
@@ -16,6 +15,17 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 });
 
 export default function SiteBar() {
+  const [firstVal, setfirstVal] = useState(false)
+  const [secondVal, setsecondVal] = useState(false)
+  const [threeVal, setthreeVal] = useState(false)
+  const [fourVal, setfourVal] = useState(false)
+  const [fiveVal, setfiveVal] = useState(false)
+
+
+
+
+
+
   const [payFoods, setPayFoods] = useState(false)
   const [activeItem2, setActiveItem2] = useState('item1');
   const [numbers, setNumbers] = useState('');
@@ -29,7 +39,7 @@ export default function SiteBar() {
   const [TableVal, setTableVal] = useState('')
   const [CvvVal, setCvvVal] = useState('')
   const [open, setOpen] = React.useState(false);
-
+  // const [activeInput, setActiveInput] = useState(false)
 
   const pattern = /^\d+$/;
   const pattern2 = /^[A-Za-z]+$/;
@@ -72,9 +82,26 @@ export default function SiteBar() {
 
   const confirmPayment = () => {
     if (CvvVal.length === 3 && pattern.test(CvvVal) && pattern2.test(nameVal) && DateVal.length === 10 && cardVal.length === 16 && pattern.test(cardVal)) {
-      setOpen(true);
-
+        setOpen(true);
+        // setActiveInput(false) 
+   } //&&  &&  && nameVal.length === 0
+    if(CvvVal.length < 3){
+      setfourVal(true)
     }
+    else setfourVal(false)
+    if(DateVal.length < 10){
+      setthreeVal(true)
+    }
+    else   setthreeVal(false)
+    if(cardVal.length < 16 ){
+      setsecondVal(true)
+    } else setsecondVal(false)
+    if(nameVal.length === 0 ){
+      setfirstVal(true)
+    } else setfirstVal(false)
+    if(TableVal.length === 0){
+      setfiveVal(true)
+    } else setfiveVal(false)
   }
 
   const handleClose = (event, reason) => {
@@ -170,7 +197,7 @@ export default function SiteBar() {
                           </div>
                           <div className='payFood_row'>
                             <h5 className='text-white'>Cardholder Name</h5>
-                            <input className='input_4' pattern='[A-z]*' type="text" placeholder='Levi Ackerman' onChange={(i) => setNameVal(i.target.value)} />
+                            <input value={nameVal} className={`${(firstVal) ? ' activeInput' : 'noneInput '} input_4`} pattern='[A-z]*' type="text" placeholder='Levi Ackerman' onChange={(i) => setNameVal(i.target.value)} />
                           </div>
                           <div className='payFood_row'>
                             <h5 className='text-white'>Card Number</h5>
@@ -178,7 +205,7 @@ export default function SiteBar() {
                               value={numbers}
                               onChange={handleChange}
                               placeholder='2564 1421 0897 1244' maxLength={19}
-                              className='input_4'
+                              className={`${(secondVal) ? 'activeInput' : '  noneInput'} input_4`}
                             />
                           </div>
                           <div>
@@ -187,8 +214,8 @@ export default function SiteBar() {
                               <h5 className='text-white'>CVV</h5>
                             </div>
                             <div className='payFood__d_flex'>
-                              <input onChange={(i) => setDateVal(i.target.value)} className='input_4' pattern='[0-9]*' type="date" placeholder='02/2022' />
-                              <input onChange={(i) => setCvvVal(i.target.value)} className='input_4' pattern='[0-9]*' type="password" placeholder=' * * *' maxLength={3} />
+                              <input onChange={(i) => setDateVal(i.target.value)} value={DateVal} className={`${(threeVal ) ? 'activeInput' : 'noneInput '} input_4`} pattern='[0-9]*' type="date" placeholder='02/02/2022' />
+                              <input onChange={(i) => setCvvVal(i.target.value)} value={CvvVal} className={`${(fourVal) ? 'activeInput' : 'noneInput '} input_4`} pattern='[0-9]*' type="password" placeholder=' * * *' maxLength={3} />
                             </div>
                           </div>
                           <div>
@@ -198,11 +225,11 @@ export default function SiteBar() {
                             </div>
                             <div className='payFood__d_flex'>
                               <select name="" id="">
-                                <option selected>Choose</option>
+                                <option selected>Dine In</option>
                                 <option value="">Privet</option>
                                 <option value="">Poka</option>
                               </select>
-                              <input onChange={(i) => setTableVal(i.target.value)} type="text" placeholder='140' className='input_4' maxLength={3} pattern='[0-9]*' />
+                              <input  onChange={(i) => setTableVal(i.target.value)} type="text" placeholder='140' className={`${(fiveVal) ? 'activeInput ' : 'noneInput '} input_4`} maxLength={3} pattern='[0-9]*' />
                             </div>
                           </div>
                           <div className='payFood__d_flex_btn'>
@@ -217,7 +244,7 @@ export default function SiteBar() {
               }
             </>
           </div>
-        </> : <Offcanvas />
+        </> : ''
       }
     </>
   )
@@ -246,18 +273,12 @@ export default function SiteBar() {
     </div>
   )
 
-  const offcansHomeeee = (
-    <div>
-
-    </div>
-  )
 
   return (
     <div className=''>
       {SiteBarMobile}
       {SiteBar}
       {shop}
-      {offcansHomeeee}
       {notification}
     </div>
   )

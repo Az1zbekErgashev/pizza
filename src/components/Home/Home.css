@@ -218,8 +218,8 @@
             padding: 0;
         }
         .Navbar__search{
-            width: 250px;
-            font-size: 14px;
+            width: 200px;
+            font-size: 10px !important;
             overflow: hidden;
     
         }

@@ -44,12 +44,15 @@
     transform: translateX(-50%);
 }
 .card__row .card__text{
-    text-align: center;
     color: white; 
     position: absolute;
     top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
     font-size: 25px;
+    width: 250px;
 }
+
 .card__row .card__cost{
     position: absolute;
     top: 65%;
@@ -205,7 +208,7 @@
         background-color: #1F1D2B;
         margin: 120px 0;
         width: 250px;
-        height: 350px;
+        height: 300px !important;
         position: relative;
         border-radius: 15px;
         left: 50%;
@@ -221,12 +224,15 @@
         text-align: center;
         color: white; 
         position: absolute;
-        top: 40%;
-        font-size: 25px;
+        top: 35% !important; 
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 18px;
+        width: 250px;
     }
     .card__row .card__cost{
         position: absolute;
-        top: 65%;
+        top: 55% !important;
         left: 50%;
         transform: translateX(-50%);
         color: white;
@@ -234,7 +240,7 @@
     }
     .card__row .card__count{
         position: absolute;
-        top: 75%;
+        top: 67% !important;
         left: 50%;
         transform: translateX(-50%);
         color: rgba(255, 255, 255, 0.543);

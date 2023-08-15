@@ -20,6 +20,7 @@
   justify-content: center;
   align-items: center;
   font-size: 24px;
+  cursor: pointer;
 }
 
 .SiteBar__Index {
@@ -270,7 +271,6 @@
 }
 
 .payFood__d_flex input {
-  border: 1px solid white;
   background: #42485f;
   color: white;
 
@@ -278,7 +278,7 @@
     color: white;
   }
 
-  width: 180px;
+  width: 170px !important;
   outline: none;
   border-radius: 8px;
   height: 40px;
@@ -306,7 +306,6 @@
   height: 30px;
   outline: none;
   border-radius: 8px;
-  border: 1px solid white;
   background: #42485f;
   color: white;
 
@@ -323,7 +322,6 @@
   height: 30px;
   outline: none;
   border-radius: 8px;
-  border: 1px solid white;
   background: #42485f;
   color: white;
 
@@ -379,7 +377,7 @@
 
 }
 .input_4:invalid{
-    border: 2px solid red;
+    border: 2px solid red !important;
     animation: invalid 0.3s 2;
 }
 @keyframes invalid {
@@ -398,7 +396,12 @@
   width: 0px;
   opacity: 0.5;
 }
-
+.activeInput{
+  border: 1px solid red;
+}
+.noneInput{
+  border: 1px solid rgba(255, 255, 255, 0.489);
+}
 
 
 @media (max-width: 425px),
@@ -442,6 +445,8 @@
     justify-content: center;
     align-items: center;
     font-size: 16px;
+  cursor: pointer;
+
   }
 
   .offcanvas-end {
@@ -534,6 +539,8 @@
     width: 60px !important;
     height: 40px;
     font-size: 12px;
+  cursor: pointer;
+
   }
 
 
@@ -547,7 +554,7 @@
     top: 50px;
     height: 40px;
     font-size: 20px;
-    margin-bottom: 0px ;
+    margin-bottom: 100px ;
   }
   .payFood__d_flex {
     display: flex;
@@ -589,7 +596,7 @@
   }
   
   .payFood__d_flex input {
-    border: 1px solid white;
+    border: none;
     background: #42485f;
     color: white;
   
@@ -600,7 +607,7 @@
     width: 120px;
     outline: none;
     border-radius: 8px;
-    height: 40px;
+    height: 60px;
     padding: 0 10px;
   }
   
@@ -832,6 +839,8 @@
     width: 60px !important;
     height: 40px;
     font-size: 16px !important;
+  cursor: pointer;
+
   }
 
 
@@ -845,7 +854,7 @@
     top: 29px !important;
     height: 40px;
     font-size: 20px;
-    margin-bottom: 60px ;
+    margin-bottom: 100px ;
   }
   .payFood__d_flex {
     display: flex;
@@ -887,7 +896,8 @@
   }
   
   .payFood__d_flex input {
-    border: 1px solid white;
+    height: 50px !important;
+    border: none;
     background: #42485f;
     color: white;
   
@@ -898,7 +908,7 @@
     width: 120px;
     outline: none;
     border-radius: 8px;
-    height: 40px;
+  
     padding: 0 10px;
   }
   
@@ -919,8 +929,9 @@
   }
   
   .payFood_row textarea {
+    text-align: center;
     width: 100%;
-    height: 30px;
+    height: 45px;
     outline: none;
     border-radius: 8px;
     border: 1px solid white;
@@ -931,16 +942,17 @@
       color: white;
     }
   
-    padding: 0 10px;
+    padding: 10px 10px;
   
   }
   
+  
   .payFood_row input {
     width: 100%;
-    height: 30px;
+    height: 40px;
     outline: none;
     border-radius: 8px;
-    border: 1px solid white;
+    border: 1px solid none;
     background: #42485f;
     color: white;
   
@@ -976,14 +988,6 @@
     margin: 0;
     padding: 0;
   }
-  .offcanss_info_header_group_btn {
-    display: flex;
-    align-items: center;
-    width: 250px;
-    gap: 10px;
-    padding: 10px;
-  }
-  
   .offcanss_info_header_btn {
     border: none;
     border-radius: 5px;
@@ -1085,5 +1089,11 @@
   }
   .FoodShopList{
     margin:  0px;
+  }
+  .activeInput{
+    border: 1px solid red !important;
+  }
+  .noneInput{
+    border: 1px solid rgba(255, 255, 255, 0.489) !important;
   }
 } 
